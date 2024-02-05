@@ -4,6 +4,7 @@ import com.example.apimodel.domain.ApiModel;
 import com.example.apimodel.repository.ApiRepo;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -16,6 +17,7 @@ public class ApiService {
     }
 
     public void creatApi(ApiModel apiModel){
+        apiModel.setType(apiModel.getType().toUpperCase());
         apiRepo.save(apiModel);
     }
 
@@ -30,6 +32,10 @@ public class ApiService {
         } else{
             throw new NoSuchElementException("Api with ID: " + id + "not found");
         }
+    }
+
+    public List<ApiModel> getAllApi(){
+        return apiRepo.findAll();
     }
 
     public ApiModel getApi(String id){

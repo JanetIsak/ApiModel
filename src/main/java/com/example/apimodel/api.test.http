@@ -7,6 +7,10 @@ Content-Type: application/json
   "endPoint": "www.example.com/api/hello"
 }
 
+###
+
+GET http://localhost:8080/api
+
 
 ###
 GET http://localhost:8080/api/3
