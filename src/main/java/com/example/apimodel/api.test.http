@@ -1,0 +1,26 @@
+POST http://localhost:8080/api/create
+Content-Type: application/json
+
+{
+  "id": 6,
+  "type": "unavailable",
+  "endPoint": "www.example.com/api/hello"
+}
+
+
+###
+GET http://localhost:8080/api/3
+
+###
+
+PUT http://localhost:8080/api/update/6
+Content-Type: application/json
+
+{
+  "id": 6,
+  "type": "free",
+  "endPoint": "www.example.com/api/hello"
+}
+
+###
+DELETE http://localhost:8080/api/3
