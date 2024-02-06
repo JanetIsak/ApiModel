@@ -4,7 +4,7 @@ Content-Type: application/json
 {
   "id": 6,
   "type": "unavailable",
-  "endPoint": "www.example.com/api/hello"
+  "endPoint": "www.example.com/api/helloworld"
 }
 
 ###
