@@ -2,9 +2,10 @@ POST http://localhost:8080/api/create
 Content-Type: application/json
 
 {
-  "id": 6,
-  "type": "unavailable",
-  "endPoint": "www.example.com/api/helloworld"
+
+  "id": 3,
+  "type": "free",
+  "endPoint": "google.com"
 }
 
 ###
@@ -22,9 +23,9 @@ Content-Type: application/json
 
 {
   "id": 6,
-  "type": "free",
+  "type": "unavailable",
   "endPoint": "www.example.com/api/hello"
 }
 
 ###
-DELETE http://localhost:8080/api/3
+DELETE http://localhost:8080/api/65c11b5672d6c165e0ef471d
