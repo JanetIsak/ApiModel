@@ -1,6 +1,7 @@
 package com.example.apimodel.service;
 
 import com.example.apimodel.domain.ApiModel;
+import com.example.apimodel.dto.ApiData;
 import com.example.apimodel.kafka.Producer;
 import com.example.apimodel.repository.ApiRepo;
 import lombok.RequiredArgsConstructor;
@@ -17,11 +18,11 @@ public class ApiService {
     private final Producer producer;
 
     public void creatApi(ApiModel apiModel) {
-        apiModel.setType(apiModel.getType().toUpperCase());
+        ApiData apiData = APIModelToAPIDataModel(apiModel);
         if (apiModel.getType().equalsIgnoreCase("unavailable")) {
-            producer.send("unavailableAPI", apiModel);
+            producer.send("unavailableAPI", apiData);
         } else if (apiModel.getType().equalsIgnoreCase("free")) {
-            producer.send("freeAPI", apiModel);
+            producer.send("freeAPI", apiData);
         }
         apiRepo.save(apiModel);
     }
@@ -33,16 +34,26 @@ public class ApiService {
     public void updateApi(ApiModel apiModel, String id) {
         Optional<ApiModel> optionalApiModel = apiRepo.findById(id);
         if (optionalApiModel.isPresent()) {
-            apiModel.setType(apiModel.getType().toUpperCase());
+            ApiData apiData = APIModelToAPIDataModel(apiModel);
             if (apiModel.getType().equalsIgnoreCase("unavailable")) {
-                producer.send("unavailableAPI", apiModel);
+                producer.send("unavailableAPI", apiData);
             } else if (apiModel.getType().equalsIgnoreCase("free")) {
-                producer.send("freeAPI", apiModel);
+                producer.send("freeAPI", apiData);
             }
             apiRepo.save(apiModel);
         } else {
             throw new NoSuchElementException("Api with ID: " + id + "not found");
         }
+    }
+
+    private ApiData APIModelToAPIDataModel(ApiModel apiModel) {
+        apiModel.setType(apiModel.getType().toUpperCase());
+        ApiData apiData = new ApiData();
+        apiData.setName(apiModel.getName());
+        apiData.setType(apiModel.getType());
+        apiData.setUrl(apiModel.getEndPoint());
+        apiData.setDescription(apiModel.getDescription());
+        return apiData;
     }
 
     public List<ApiModel> getAllApi() {

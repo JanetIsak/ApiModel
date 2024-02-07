@@ -10,8 +10,9 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class ApiData {
 
-    private String name;
-    private String status;
     private String url;
+    private String apiKey;
+    private String name;
     private String description;
+    private String type;
 }
