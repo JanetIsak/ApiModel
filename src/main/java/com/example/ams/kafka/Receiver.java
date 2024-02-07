@@ -33,24 +33,24 @@ public class Receiver {
 //    }
     @KafkaListener(topics = {"${spring.kafka.consumer.topic1}", "${spring.kafka.consumer.topic2}"}, groupId = "${spring.kafka.consumer.group-id}")
     @Transactional
-    public void receiveApiData(@Payload Object apiData) {
+    public void receiveApiData(@Payload ApiData apiData) {
         try {
             // check if object has the properties of ApiData
             // cast and test if it is an instance of ApiData
-            ApiData transformedApiData = (ApiData) apiData;
-            if (transformedApiData == null) {
-                throw new IllegalArgumentException("Object is not an instance of ApiData");
-            }
-            if (transformedApiData.getName() == null || transformedApiData.getType() == null || transformedApiData.getUrl() == null || transformedApiData.getDescription() == null) {
-                throw new IllegalArgumentException("Object does not have the properties of ApiData");
-            }
+//            ApiData transformedApiData = (ApiData) apiData;
+//            if (transformedApiData == null) {
+//                throw new IllegalArgumentException("Object is not an instance of ApiData");
+//            }
+//            if (transformedApiData.getName() == null || transformedApiData.getType() == null || transformedApiData.getUrl() == null || transformedApiData.getDescription() == null) {
+//                throw new IllegalArgumentException("Object does not have the properties of ApiData");
+//            }
 
-            apiData = transformedApiData;
+//            apiData = transformedApiData;
             ApiModel apiModel = new ApiModel();
-            apiModel.setName(((ApiData) apiData).getName());
-            apiModel.setType(((ApiData) apiData).getType());
-            apiModel.setEndPoint(((ApiData) apiData).getUrl());
-            apiModel.setDescription(((ApiData) apiData).getDescription());
+            apiModel.setName(apiData.getName());
+            apiModel.setType(apiData.getType());
+            apiModel.setEndPoint(apiData.getUrl());
+            apiModel.setDescription(apiData.getDescription());
 
             apiRepo.save(apiModel);
         } catch (Exception e) {
