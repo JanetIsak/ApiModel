@@ -1,9 +1,9 @@
-package com.example.apimodel.service;
+package com.example.ams.service;
 
-import com.example.apimodel.domain.ApiModel;
-import com.example.apimodel.dto.ApiData;
-import com.example.apimodel.kafka.Producer;
-import com.example.apimodel.repository.ApiRepo;
+import com.example.ams.domain.ApiModel;
+import com.example.ams.dto.ApiData;
+import com.example.ams.kafka.Producer;
+import com.example.ams.repository.ApiRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

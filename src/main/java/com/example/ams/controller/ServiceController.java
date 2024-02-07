@@ -1,6 +1,6 @@
-package com.example.apimodel.controller;
+package com.example.ams.controller;
 
-import com.example.apimodel.dto.ServiceData;
+import com.example.ams.dto.ServiceData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

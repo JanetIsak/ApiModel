@@ -1,12 +1,9 @@
-package com.example.apimodel.kafka;
+package com.example.ams.kafka;
 
-import com.example.apimodel.dto.ApiData;
-import jakarta.websocket.SendResult;
+import com.example.ams.dto.ApiData;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
-
-import java.util.concurrent.CompletableFuture;
 
 @Service
 @RequiredArgsConstructor

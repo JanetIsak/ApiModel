@@ -1,8 +1,8 @@
-package com.example.apimodel.controller;
+package com.example.ams.controller;
 
 
-import com.example.apimodel.domain.ApiModel;
-import com.example.apimodel.service.ApiService;
+import com.example.ams.domain.ApiModel;
+import com.example.ams.service.ApiService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

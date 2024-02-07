@@ -1,4 +1,4 @@
-package com.example.apimodel.domain;
+package com.example.ams.domain;
 
 
 import lombok.AllArgsConstructor;

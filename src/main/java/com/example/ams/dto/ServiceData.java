@@ -1,4 +1,4 @@
-package com.example.apimodel.dto;
+package com.example.ams.dto;
 
 import lombok.Getter;
 import lombok.Setter;

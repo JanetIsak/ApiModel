@@ -1,17 +1,13 @@
-package com.example.apimodel.kafka;
+package com.example.ams.kafka;
 
-import com.example.apimodel.domain.ApiModel;
-import com.example.apimodel.dto.ApiData;
-import com.example.apimodel.repository.ApiRepo;
-import lombok.extern.java.Log;
-import org.slf4j.LoggerFactory;
+import com.example.ams.domain.ApiModel;
+import com.example.ams.dto.ApiData;
+import com.example.ams.repository.ApiRepo;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.logging.Logger;
 
 @Component
 public class Receiver {

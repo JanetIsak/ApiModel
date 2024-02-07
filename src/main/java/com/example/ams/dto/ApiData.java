@@ -1,4 +1,4 @@
-package com.example.apimodel.dto;
+package com.example.ams.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
